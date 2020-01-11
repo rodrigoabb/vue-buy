@@ -104,4 +104,23 @@ main {
   color: red;
 }
 
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: #d9d9d9;
+  transition: .3s fill;
+}
+
+.button {
+  border: 1px solid #d9d9d9;
+  border-radius: 100px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: .3s border, .3s color, .3s background-color;
+}
+
 </style>
