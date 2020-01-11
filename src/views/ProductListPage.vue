@@ -7,6 +7,10 @@
             <li class="product-list__item" v-for="product in productsForThisPage" :key="product.uuid">
               <ProductItem
                 :product="product"
+                @onAddToCart="addProductToCart"
+                @onRemoveToCart="removeProductFromCart"
+                @onAddToWishlist="addProductToWishlist"
+                @onRemoveToWishlist="removeProductFromWishlist"
                 />
             </li>
         </ul>
@@ -16,6 +20,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 import ProductItem from '@/components/Product/ProductItem.vue';
 
 export default {
@@ -28,22 +33,23 @@ export default {
     };
   },
   computed: {
+    ...mapGetters([
+      'allProducts',
+      'allProductsStatus',
+    ]),
     productsForThisPage() {
-      return [
-        {
-          uuid: '95aca17a-45cd-84cd-4517-a199dbd8524b',
-          title: 'A really beautiful image from a random topic',
-          description: 'You can see here something that is really nice, unexpected, you probably do not know if it is for sale or not but you want to buy it. See the price, it is not too bad.',
-          price: {
-            currency: 'EUR',
-            value: 45,
-            originalPrice: '€ 85.00 ',
-            discountPrice: '€ 45,00 ',
-          },
-          cover_image_url: 'https://i.picsum.photos/id/154/200/200.jpg',
-        },
-      ];
+      const productsForThisPage = this.allProducts;
+      return productsForThisPage;
     },
+  },
+  methods: {
+    ...mapActions([
+      'fetchProducts',
+      'addProductToCart',
+      'removeProductFromCart',
+      'addProductToWishlist',
+      'removeProductFromWishlist',
+    ]),
   },
 };
 
