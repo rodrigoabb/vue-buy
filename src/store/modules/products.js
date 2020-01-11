@@ -2,7 +2,23 @@
 
 const getDefaultState = () => (
   {
-    products: [],
+    products: [
+      {
+        uuid: '95aca17a-45cd-84cd-4517-a199dbd8524b',
+        title: 'A really beautiful image of a random topic',
+        description: 'You can see here something that is really nice, unexpected, you probably do not know if it is for sale or not but you want to buy it. See the price, it is not too bad.',
+        price: {
+          currency: 'EUR',
+          originalValue: 45,
+          originalPrice: '€ 85.00 ',
+          discountValue: 45,
+          discountPrice: '€ 45,00 ',
+        },
+        cover_image_url: 'https://i.picsum.photos/id/154/200/200.jpg',
+        isAddedToCart: false,
+        isAddedToWishlist: false,
+      },
+    ],
     productsIsLoading: false,
     productsError: '',
   }
