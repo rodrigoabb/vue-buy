@@ -6,7 +6,9 @@
       </router-link>
       <aside class="header-cart">
         <div class="header-cart__item header-cart__count">
-          <div class="header-cart__price">{{ cartTotalPrice }}</div>
+          <div class="header-cart__price">
+            {{ cartTotalPrice }}
+          </div>
           <div id="cart-icon" class>
             <svg
               class="icon"
@@ -59,14 +61,24 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import { CURRENCY } from '@/utilities/constants';
+
 export default {
   name: 'Header',
   data() {
     return {
-      allProductsInCart: ['product1', 'product2', 'product3', 'product4'],
-      allProductsInWishlist: ['product1', 'product4'],
-      cartTotalPrice: '€ 15',
     };
+  },
+  computed: {
+    ...mapGetters([
+      'allProductsInCart',
+      'allProductsInWishlist',
+    ]),
+    cartTotalPrice() {
+      const sumValue = this.allProductsInCart.reduce((a, b) => a + (b.price.discountValue || 0), 0);
+      return `${CURRENCY.symbol} ${sumValue.toFixed(2)}`;
+    },
   },
 };
 </script>
