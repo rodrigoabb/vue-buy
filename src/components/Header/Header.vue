@@ -154,7 +154,7 @@ export default {
   align-self: flex-start;
   justify-content: center;
   align-items: center;
-  font-family: "Lato-Bold", sans-serif;
+  font-family: sans-serif;
   font-size: 8px;
   text-align: center;
   border-radius: 50%;
