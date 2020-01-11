@@ -3,7 +3,11 @@
     <article class="product" itemscope>
       <figure class="product__image-wrapper">
         <img class="product__image" :src="product.cover_image_url" alt="Product" itemprop="image" />
-        <button class="product__wishlist-button button button--round button--wishlist">
+        <button
+          class="product__wishlist-button button button--round button--wishlist"
+          :class="wishlistButtonClass"
+          @click="onWishlistButtonClick(product)"
+        >
           <svg
             id="Wishlist-Icon"
             class="icon"
@@ -30,7 +34,13 @@
             itemprop="price"
           >{{ product.price.discountPrice}}</span>
         </div>
-        <button class="product__add-to-cart button button--primary">{{ cartButtonText }}</button>
+        <button
+          class="product__add-to-cart button button--primary"
+          :class="cartButtonClass"
+          @click="onCartButtonClick(product)"
+        >
+          {{ cartButtonText }}
+        </button>
       </div>
     </article>
   </div>
@@ -56,6 +66,26 @@ export default {
       return this.product.isAddedToWishlist ? 'button--in-wishlist' : '';
     },
   },
+  methods: {
+    onCartButtonClick(productSelected) {
+      if (!this.product.isAddedToCart) {
+        this.$emit('onAddToCart', productSelected);
+        this.product.isAddedToCart = true;
+      } else {
+        this.$emit('onRemoveToCart', productSelected);
+        this.product.isAddedToCart = false;
+      }
+    },
+    onWishlistButtonClick(productSelected) {
+      if (!this.product.isAddedToWishlist) {
+        this.$emit('onAddToWishlist', productSelected);
+        this.product.isAddedToWishlist = true;
+      } else {
+        this.$emit('onRemoveToWishlist', productSelected);
+        this.product.isAddedToWishlist = false;
+      }
+    },
+  },
 };
 </script>
 
@@ -78,7 +108,7 @@ export default {
 }
 
 .button--in-wishlist > .icon {
-  fill: #ffc15d;
+  fill: #ff0000;
 }
 
 .button--in-cart {
