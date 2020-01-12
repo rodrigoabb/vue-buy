@@ -26,7 +26,7 @@
       </figure>
       <div class="product__details">
         <h1 class="product__title" itemprop="brand">{{ product.title }}</h1>
-        <p class="product__subtitle" itemprop="description">{{ product.description }}</p>
+        <p class="product__subtitle" itemprop="description">{{ truncateWithEllipses(product.description, productDescriptionMaxLength) }}</p>
         <div class="product__price" itemscope itemtype="http://schema.org/Offer">
           <span class="product__price--strike">{{ product.price.originalPrice }}</span>
           <span
@@ -47,6 +47,9 @@
 </template>
 
 <script>
+import { truncateTextWithEllipses } from '@/utilities/helperFunctions';
+import { PRODUCT_DESCRIPTION_LIST_MAX_LENGTH } from '@/utilities/constants';
+
 export default {
   name: 'ProductItem',
   props: {
@@ -54,6 +57,11 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  data() {
+    return {
+      productDescriptionMaxLength: PRODUCT_DESCRIPTION_LIST_MAX_LENGTH,
+    };
   },
   computed: {
     cartButtonClass() {
@@ -84,6 +92,9 @@ export default {
         this.$emit('onRemoveToWishlist', productSelected);
         this.product.isAddedToWishlist = false;
       }
+    },
+    truncateWithEllipses(text, max) {
+      return truncateTextWithEllipses(text, max);
     },
   },
 };
