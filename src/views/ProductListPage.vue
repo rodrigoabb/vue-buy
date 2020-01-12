@@ -22,14 +22,19 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import ProductItem from '@/components/Product/ProductItem.vue';
+import { PRODUCTS_PER_PAGE } from '@/utilities/constants';
 
 export default {
   name: 'ProductListPage',
   components: {
     ProductItem,
   },
+  created() {
+    this.askForThisPageProducts();
+  },
   data() {
     return {
+      currentPage: 1,
     };
   },
   computed: {
@@ -38,8 +43,11 @@ export default {
       'allProductsStatus',
     ]),
     productsForThisPage() {
-      const productsForThisPage = this.allProducts;
+      const productsForThisPage = this.allProducts.slice(this.firstProductGlobalIndex, this.firstProductGlobalIndex + PRODUCTS_PER_PAGE);
       return productsForThisPage;
+    },
+    firstProductGlobalIndex() {
+      return (this.currentPage - 1) * PRODUCTS_PER_PAGE; // -1 for refer to a zero-indexed array
     },
   },
   methods: {
@@ -50,6 +58,11 @@ export default {
       'addProductToWishlist',
       'removeProductFromWishlist',
     ]),
+    askForThisPageProducts() {
+      if (!this.allProducts[this.firstProductGlobalIndex]) {
+        this.fetchProducts(this.firstProductGlobalIndex);
+      }
+    },
   },
 };
 
