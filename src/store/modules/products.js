@@ -23,9 +23,14 @@ const actions = {
   fetchProducts({ commit }, productGlobalIndex) {
     commit('SET_PRODUCTS_PENDING');
     // Some API call to retrieve products, then will either commit SET_PRODUCTS_SUCCESS or SET_PRODUCTS_ERROR
-    // For now, we're just going to use mocked data
-    const productsForThisPage = mockedProducts.slice(productGlobalIndex, productGlobalIndex + PRODUCTS_PER_PAGE);
-    commit('SET_PRODUCTS_SUCCESS', { products: productsForThisPage, productGlobalIndex });
+    // For now, we're just going to use mocked data and fake return time
+    const delayMS = Math.round((Math.random() * (1100 - 400) + 400));
+    return new Promise(() => {
+      setTimeout(() => {
+        const productsForThisPage = mockedProducts.slice(productGlobalIndex, productGlobalIndex + PRODUCTS_PER_PAGE);
+        commit('SET_PRODUCTS_SUCCESS', { products: productsForThisPage, productGlobalIndex });
+      }, delayMS);
+    });
   },
   addProductToCart({ commit }, product) {
     commit('ADD_PRODUCT_TO_CART', product);
@@ -54,7 +59,6 @@ const mutations = {
     for (let i = 0; i < formattedProducts.length; i += 1) {
       tempArray[productGlobalIndex + i] = formattedProducts[i];
     }
-
     state.products = [...tempArray];
     state.productsIsLoading = false;
     state.productsError = '';
@@ -68,25 +72,25 @@ const mutations = {
     state.productsError = error;
   },
   ADD_PRODUCT_TO_CART: (state, selectedProduct) => {
-    const productToAdd = state.products.find(product => product.uuid === selectedProduct.uuid);
+    const productToAdd = state.products.find(product => product && product.uuid === selectedProduct.uuid);
     if (productToAdd) {
       productToAdd.isAddedToCart = true;
     }
   },
   REMOVE_PRODUCT_FROM_CART: (state, selectedProduct) => {
-    const productToRemove = state.products.find(product => product.uuid === selectedProduct.uuid);
+    const productToRemove = state.products.find(product => product && product.uuid === selectedProduct.uuid);
     if (productToRemove) {
       productToRemove.isAddedToCart = false;
     }
   },
   ADD_PRODUCT_TO_WISHLIST: (state, selectedProduct) => {
-    const productToAdd = state.products.find(product => product.uuid === selectedProduct.uuid);
+    const productToAdd = state.products.find(product => product && product.uuid === selectedProduct.uuid);
     if (productToAdd) {
       productToAdd.isAddedToWishlist = true;
     }
   },
   REMOVE_PRODUCT_FROM_WISHLIST: (state, selectedProduct) => {
-    const productToRemove = state.products.find(product => product.uuid === selectedProduct.uuid);
+    const productToRemove = state.products.find(product => product && product.uuid === selectedProduct.uuid);
     if (productToRemove) {
       productToRemove.isAddedToWishlist = false;
     }
