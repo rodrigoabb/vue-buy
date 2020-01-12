@@ -101,6 +101,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+@import "@/utilities/variables";
+
 /* ==========================================================================
    Buttons
    ========================================================================== */
@@ -195,7 +198,7 @@ export default {
 }
 
 .product__price--discounted {
-  color: red;
+  color: $main-color;
 }
 
 /* ==========================================================================
@@ -219,23 +222,30 @@ export default {
   margin-top: auto;
 }
 
+
 /* ==========================================================================
    Media Queries
    ========================================================================== */
 
-@media (hover: hover) {
-  .button--primary:hover {
-    border: 1px solid #444a59;
-    color: #ffffff;
-    background-color: #444a59;
+  @media (hover:hover) {
+    .button--primary:hover {
+      border: 1px solid #444A59;
+      color: #ffffff;
+      background-color: #444A59;
+    }
+
+    .button--wishlist:hover {
+      border: 1px solid #444A59;
+    }
+
+    .button--wishlist:hover > .icon {
+      fill: #444A59;
+    }
   }
 
-  .button--wishlist:hover {
-    border: 1px solid #444a59;
+   @media (min-width: $tablet-portrait-upper-boundary) {
+    .product__title {
+      height: 75px;
+    }
   }
-
-  .button--wishlist:hover > .icon {
-    fill: #444a59;
-  }
-}
 </style>
