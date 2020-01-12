@@ -29,6 +29,8 @@ export default {
 
 <style lang="scss" scoped>
 
+@import "@/utilities/variables";
+
 /* Basic Spinner */
 .spinner-base:before {
   content: "";
@@ -46,21 +48,21 @@ export default {
 /* Spinner 1 */
 .spinner-1:before {
   border: 3px solid #D3D3D3;
-  border-top-color: orange;
+  border-top-color: $c-primary-accent;
   animation: spinner 0.7s linear infinite;
 }
 
 /* Spinner 2 */
 .spinner-2:before {
   border: 2px solid transparent;
-  border-top-color: orange;;
-  border-bottom-color: orange;;
+  border-top-color: $c-primary-accent;;
+  border-bottom-color: $c-primary-accent;;
   animation: spinner 0.7s ease infinite;
 }
 
 /* Spinner 3 */
 .spinner-3:before {
-  border-top: 2px solid orange;;
+  border-top: 2px solid $c-primary-accent;;
   border-right: 2px solid transparent;
   animation: spinner 0.7s linear infinite;
 }
@@ -70,5 +72,24 @@ export default {
     transform: rotate(360deg);
   }
 }
+
+  @media (min-width: $phone-upper-boundary) {
+    .spinner-base:before {
+      width: 120px;
+      height: 120px;
+      margin-top: -60px;
+      margin-left: -60px;
+    }
+  }
+
+  @media (min-width: $tablet-landscape-upper-boundary) {
+   .spinner-base:before {
+      width: 150px;
+      height: 150px;
+      margin-top: -90px;
+      margin-left: -90px;
+    }
+  }
+
 
 </style>
