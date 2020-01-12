@@ -1,6 +1,6 @@
 # Vue Buy - Simple E-commerce app
 
-This is simple e-commerce app, developed with Vue
+This is simple e-commerce app, developed with Vue. Here you can find mocked art pieces, add it to your cart and fake-buy them!
 <br/>
 
 ### The simple e-commerce application has:
