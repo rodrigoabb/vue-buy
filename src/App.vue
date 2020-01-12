@@ -7,6 +7,7 @@
 </template>
 
 <script>
+// @ is an alias to /src
 import Header from '@/components/Header/Header.vue';
 import Footer from '@/components/Footer/Footer.vue';
 
@@ -20,6 +21,8 @@ export default {
 </script>
 
 <style lang="scss">
+
+@import "@/utilities/variables";
 
 /* ==========================================================================
    Main Styles
@@ -122,5 +125,14 @@ main {
   cursor: pointer;
   transition: .3s border, .3s color, .3s background-color;
 }
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+  @media (max-width: $phone-upper-boundary - 1) {
+    .container {
+      padding: 30px 10px;
+    }
+  }
 
 </style>
