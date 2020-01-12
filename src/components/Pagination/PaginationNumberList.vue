@@ -8,6 +8,13 @@
 
 <script>
 
+/**
+* @module Pagination/PaginationNumberList
+* @desc PaginationNumberList component
+* @vue-prop {Number} pageNumber - Number of page being rendered. NOTE: String type is also allowed for just once case: it can be a ellipsis
+* @vue-event {Number} onClick - Emits 'loadPage' event
+*/
+
 export default {
   name: 'PaginationNumberList',
   props: {
@@ -17,6 +24,9 @@ export default {
     },
   },
   methods: {
+    /**
+     * Emits a 'loadPage' event with pageNumber value
+    */
     onClick() {
       this.$emit('loadPage', this.pageNumber);
     },
@@ -25,6 +35,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 
 </style>
