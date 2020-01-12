@@ -84,6 +84,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+@import "@/utilities/variables";
+
 /* ==========================================================================
    Header
    ========================================================================== */
@@ -173,4 +176,40 @@ export default {
   color: #ffffff;
   background-color: #358ed7;
 }
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media (max-width: $phone-upper-boundary - 1) {
+  .header-logo {
+    padding-left: 2em;
+  }
+
+  .header-logo svg {
+    width: 80px;
+    height: 80px;
+  }
+
+  .header {
+    padding-right: 1em;
+  }
+}
+
+@media (min-width: $phone-upper-boundary) {
+  .header-logo {
+    padding-left: 2em;
+  }
+  .header {
+    padding-right: 1.5em;
+  }
+}
+
+@media (min-width: $tablet-landscape-upper-boundary) {
+  .header {
+    padding-right: 0em;
+  }
+}
+
 </style>
