@@ -19,6 +19,13 @@
                 />
             </li>
         </ul>
+        <Pagination
+          :current-page="currentPage"
+          :page-count="pageCount"
+          @nextPage="pageChangeHandle('next')"
+          @previousPage="pageChangeHandle('previous')"
+          @loadPage="pageChangeHandle"
+        />
       </div>
     </div>
   </main>
@@ -27,14 +34,16 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import ProductItem from '@/components/Product/ProductItem.vue';
-import { PRODUCTS_PER_PAGE, FAKE_WAIT_TIME_MS } from '@/utilities/constants';
+import { PRODUCTS_PER_PAGE, FAKE_WAIT_TIME_MS, PAGE_COUNT } from '@/utilities/constants';
 import LoadingSpinner from '@/components/Utils/LoadingSpinner.vue';
+import Pagination from '@/components/Pagination/Pagination.vue';
 
 export default {
   name: 'ProductListPage',
   components: {
     LoadingSpinner,
     ProductItem,
+    Pagination,
   },
   created() {
     this.askForThisPageProducts();
@@ -43,6 +52,7 @@ export default {
     return {
       currentPage: 1,
       fakeIsLoading: false,
+      pageCount: PAGE_COUNT,
     };
   },
   computed: {
@@ -66,6 +76,23 @@ export default {
       'addProductToWishlist',
       'removeProductFromWishlist',
     ]),
+    async pageChangeHandle(value) {
+      switch (value) {
+        case 'next':
+          if (this.currentPage < PAGE_COUNT) {
+            this.currentPage += 1;
+          }
+          break;
+        case 'previous':
+          if (this.currentPage > 1) {
+            this.currentPage -= 1;
+          }
+          break;
+        default:
+          this.currentPage = value;
+      }
+      this.askForThisPageProducts();
+    },
     askForThisPageProducts() {
       this.fakeIsLoading = true;
       setTimeout(() => {
