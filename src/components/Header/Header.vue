@@ -9,9 +9,10 @@
           <div class="header-cart__price">
             {{ cartTotalPrice }}
           </div>
-          <div id="cart-icon" class>
+          <div id="cart-icon" class="dropdown" @click="onCartClick" >
             <svg
-              class="icon"
+              ref="dropdownButton"
+              class="icon dropbtn "
               width="40px"
               height="36px"
               viewBox="0 0 40 36"
@@ -36,6 +37,16 @@
                 </g>
               </g>
             </svg>
+            <CartDropdown
+              v-show="showCartDropdown"
+              class="dropdown-content"
+              :items="productsToCartItem"
+              @onRemoveToCart="removeFromCartHandler"
+              v-closable="{
+                exclude: ['dropdownButton'],
+                handler: 'onCloseCartDropdown'
+              }"
+            />
           </div>
           <span class="cart__item-counter">{{ allProductsInCart.length }}</span>
         </div>
@@ -61,13 +72,66 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import Vue from 'vue';
+import { mapGetters, mapActions } from 'vuex';
 import { CURRENCY } from '@/utilities/constants';
+import CartDropdown from '@/components/Utils/CartDropdown.vue';
+
+/**
+   * @module Header/Header
+   * @desc Header component
+   * @vue-data {Boolean} [showCartDropdown=false] showCartDropdown - Determines if the Cart Dropdown component is shown or not
+   * @vue-computed {String} cartTotalPrice - Composed by chosen CURRENCY and sum of all product prices on cart
+   * @vue-computed {Array.<Object>} productsToCartItem - Array of product objects. Formats products objects on cart to be sent as an array to Cart Dropdown components
+*/
+
+// This variable will hold the reference to document's click handler
+let handleOutsideClick;
+
+Vue.directive('closable', {
+  bind(el, binding, vnode) {
+    // Here's the click/touchstart handler (it's registered below)
+    handleOutsideClick = (e) => {
+      e.stopPropagation();
+      // Get the handler method name and the exclude array from the object used in v-closable
+      const { handler, exclude } = binding.value;
+      // This variable indicates if the clicked element is excluded
+      let clickedOnExcludedEl = false;
+      exclude.forEach((refName) => {
+        // We only run this code if we haven't detected any excluded element yet
+        if (!clickedOnExcludedEl) {
+          // Get the element using the reference name
+          const excludedEl = vnode.context.$refs[refName];
+          // See if this excluded element is the same element the user just clicked on
+          clickedOnExcludedEl = excludedEl.contains(e.target);
+        }
+      });
+      // We check to see if the clicked element is not the dropdown element and not excluded
+      if (!el.contains(e.target) && !clickedOnExcludedEl) {
+        // If the clicked element is outside the dropdown and not the button, then call the outside-click handler
+        // from the same component this directive is used in
+        vnode.context[handler]();
+      }
+    };
+    // Register click/touchstart event listeners on the whole page
+    document.addEventListener('click', handleOutsideClick);
+    document.addEventListener('touchstart', handleOutsideClick);
+  },
+  unbind() {
+    // If the element that has v-closable is removed, then unbind click/touchstart listeners from the whole page
+    document.removeEventListener('click', handleOutsideClick);
+    document.removeEventListener('touchstart', handleOutsideClick);
+  },
+});
 
 export default {
   name: 'Header',
+  components: {
+    CartDropdown,
+  },
   data() {
     return {
+      showCartDropdown: false,
     };
   },
   computed: {
@@ -78,6 +142,48 @@ export default {
     cartTotalPrice() {
       const sumValue = this.allProductsInCart.reduce((a, b) => a + (Number(b.price.discountValue) || 0), 0);
       return `${CURRENCY.symbol} ${sumValue.toFixed(2)}`;
+    },
+    productsToCartItem() {
+      const items = this.allProductsInCart.map(product => ({
+        uuid: product.uuid,
+        image: product.cover_image_url,
+        title: product.title,
+        price: `${CURRENCY.symbol} ${product.price.discountValue}`,
+      }));
+      return items;
+    },
+  },
+  methods: {
+    ...mapActions([
+      'removeProductFromCart',
+    ]),
+    /**
+     * Shows/hides Cart Dropdown menu
+     */
+    onCartClick() {
+      this.showCartDropdown = !this.showCartDropdown;
+    },
+    /**
+     * Hides Cart Dropdown menu
+     */
+    onCloseCartDropdown() {
+      this.showCartDropdown = false;
+    },
+    /**
+     * Handles removing product item from Cart Dropdown menu - Triggered by event emmited from CartDropdown component
+     * @param {Object} itemSelected - Product selected to be removed from cart
+     */
+    removeFromCartHandler(itemSelected) {
+      // Ugly workaround until figure out something better
+      // Goal: not close dropdown element when delete product button is clicked
+      // Explanation: 'closable' directive checks for target elements to be included on main element (dropdown) and doesn't hide it
+      // if it's true. Since delete icon is deleted when it's clicked (alongisde with product), metioned check seems to be done before this,
+      // so includes() return false and closes the dropdown element (even though it removes product perfectly).
+      // Workaround: I've given some time to wait before action is performed, so includes() returns 'true' and dropdown keeps open as intended
+      setTimeout(() => {
+        this.removeProductFromCart(itemSelected);
+        // For experience, wait time just has to be more than 0
+      }, 10);
     },
   },
 };
@@ -177,6 +283,29 @@ export default {
   background-color: #358ed7;
 }
 
+/* ==========================================================================
+   Dropdown
+   ========================================================================== */
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropbtn {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  overflow: auto; /* to get scroll */
+  max-height: 500px;
+  position: absolute;
+  right: 2%;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
 
 /* ==========================================================================
    Media Queries
