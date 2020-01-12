@@ -50,6 +50,20 @@
 import { truncateTextWithEllipses } from '@/utilities/helperFunctions';
 import { PRODUCT_DESCRIPTION_LIST_MAX_LENGTH } from '@/utilities/constants';
 
+/**
+  * @module Product/ProductItem
+  * @desc Product Item component
+  * @vue-prop {Object} product - Product object to be shown
+  * @vue-data {Number} productDescriptionMaxLength - Set max length of product description to be shown
+  * @vue-computed {String} cartButtonClass - Contains class name for 'Add to Cart' button depending on if product is added to cart or not
+  * @vue-computed {String} cartButtonText - Contains inner text for 'Add to Cart' button depending on if product is added to cart or not
+  * @vue-computed {String} wishlistButtonClass - Contains class name for 'Add to Wishlist' star button depending on if product is added to wishilist or not
+  * @vue-event {Object} onAddToCart - Emits product object to be added to cart
+  * @vue-event {Object} onRemoveToCart - Emits product object to be removed from cart
+  * @vue-event {Object} onAddToWishlist - Emits product object to be added to wishlist
+  * @vue-event {Object} onRemoveToWishlist - Emits product object to be removed from wishlist
+*/
+
 export default {
   name: 'ProductItem',
   props: {
@@ -75,6 +89,9 @@ export default {
     },
   },
   methods: {
+    /**
+     * Emits a 'onAddToCart' or 'onRemoveToCart' event when 'Add to Cart' button is clicked, depending on its previous state
+    */
     onCartButtonClick(productSelected) {
       if (!this.product.isAddedToCart) {
         this.$emit('onAddToCart', productSelected);
@@ -84,6 +101,9 @@ export default {
         this.product.isAddedToCart = false;
       }
     },
+    /**
+     * Emits a 'onAddToWishlist' or 'onRemoveToWishlist' event when 'Add to Wishlist' start button is clicked, depending on its previous state
+    */
     onWishlistButtonClick(productSelected) {
       if (!this.product.isAddedToWishlist) {
         this.$emit('onAddToWishlist', productSelected);
@@ -93,6 +113,13 @@ export default {
         this.product.isAddedToWishlist = false;
       }
     },
+
+    /**
+     * Truncates given text max length and add ellipses at the end
+     * @param {String} text - String to truncate
+     * @param {Number} max - Max length for text to be truncated to
+     * @return {String}
+    */
     truncateWithEllipses(text, max) {
       return truncateTextWithEllipses(text, max);
     },
