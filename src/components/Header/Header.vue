@@ -76,7 +76,7 @@ export default {
       'allProductsInWishlist',
     ]),
     cartTotalPrice() {
-      const sumValue = this.allProductsInCart.reduce((a, b) => a + (b.price.discountValue || 0), 0);
+      const sumValue = this.allProductsInCart.reduce((a, b) => a + (Number(b.price.discountValue) || 0), 0);
       return `${CURRENCY.symbol} ${sumValue.toFixed(2)}`;
     },
   },
