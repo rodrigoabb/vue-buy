@@ -146,6 +146,7 @@ export default {
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1.39px;
+  color: #000000;
 }
 
 .button--in-wishlist > .icon {
@@ -154,7 +155,8 @@ export default {
 
 .button--in-cart {
   /* pointer-events: none; */
-  background-color: #d9d9d9;
+  background-color: $secondary-color;
+  color: #ffffff;
 }
 
 /* ==========================================================================
