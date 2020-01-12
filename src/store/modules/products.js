@@ -44,6 +44,7 @@ const actions = {
   removeProductFromWishlist({ commit }, product) {
     commit('REMOVE_PRODUCT_FROM_WISHLIST', product);
   },
+  resetState: ({ commit }) => commit('RESET_STATE'),
 };
 
 const mutations = {
@@ -95,6 +96,7 @@ const mutations = {
       productToRemove.isAddedToWishlist = false;
     }
   },
+  RESET_STATE: state => Object.assign(state, getDefaultState()),
 };
 
 export default {
