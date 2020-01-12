@@ -109,6 +109,8 @@ export default {
 
 <style lang="scss">
 
+@import "@/utilities/variables";
+
 /* ==========================================================================
    Product List
    ========================================================================== */
@@ -148,5 +150,34 @@ export default {
   height: 100%;
   background-color: #ffffff;
 }
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+  @media (max-width: $phone-upper-boundary - 1) {
+
+    .product-list__item {
+      /* flex: none; */
+      flex: 1 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width: $phone-upper-boundary) {
+    .product-list__item {
+      flex: 1 0 50%;
+      max-width: 50%;
+    }
+  }
+
+  @media (min-width: $tablet-portrait-upper-boundary) {
+    .product-list__item {
+      padding: 10px;
+      flex: 1 0 33.3333%;
+      max-width: 33.3333%;
+    }
+  }
 
 </style>
