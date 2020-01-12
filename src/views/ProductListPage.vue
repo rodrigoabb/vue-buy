@@ -38,6 +38,16 @@ import { PRODUCTS_PER_PAGE, FAKE_WAIT_TIME_MS, PAGE_COUNT } from '@/utilities/co
 import LoadingSpinner from '@/components/Utils/LoadingSpinner.vue';
 import Pagination from '@/components/Pagination/Pagination.vue';
 
+/**
+  * @module Product/ProductItem
+  * @desc Product Item component
+  * @vue-data {Number} currentPage [currentPage=1] - Current page number
+  * @vue-data {Number} pageCount - Max number of pages
+  * @vue-data {Boolean} fakeIsLoading - Determines if a fake loading spinner will be rendered or not
+  * @vue-computed {Array<Object>} productsForThisPage - Contains the products corresponding to current page (page asked)
+  * @vue-computed {Number} firstProductGlobalIndex - Index of first product of corresponding set of products for current page (zero-based)
+*/
+
 export default {
   name: 'ProductListPage',
   components: {
@@ -76,6 +86,11 @@ export default {
       'addProductToWishlist',
       'removeProductFromWishlist',
     ]),
+
+    /**
+     * Handles page change. Set currentPage value to the desired page, and asks for products to be shown
+     * @param {String} value - Action to determine currentPage value. NOTE: this also could be a number, meaning the exact page number asked
+    */
     async pageChangeHandle(value) {
       switch (value) {
         case 'next':
@@ -93,6 +108,10 @@ export default {
       }
       this.askForThisPageProducts();
     },
+
+    /**
+     * Loads products corresponding to current page
+    */
     askForThisPageProducts() {
       this.fakeIsLoading = true;
       setTimeout(() => {
