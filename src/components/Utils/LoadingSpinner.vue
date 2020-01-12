@@ -5,6 +5,13 @@
 <script>
 const SPINNER_TYPES_NUMBER = 3;
 
+/**
+  * @module Utils/LoadingSpinner
+  * @desc Product Item component
+  * @vue-prop {Number} [spinnerType=1] spinnerType - Determines desired type of spinner to be rendered
+  * @vue-computed {String} spinnerTypeValue - Returns a valid type of spinner, depending on spinnerType value and available spinner types. Used as a class suffix
+*/
+
 export default {
   name: 'LoadingSpinner',
   props: {
