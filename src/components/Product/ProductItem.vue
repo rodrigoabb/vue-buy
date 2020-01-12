@@ -27,7 +27,7 @@
       <div class="product__details">
         <h1 class="product__title" itemprop="brand">{{ product.title }}</h1>
         <p class="product__subtitle" itemprop="description">{{ truncateWithEllipses(product.description, productDescriptionMaxLength) }}</p>
-        <div class="product__price" itemscope itemtype="http://schema.org/Offer">
+        <div class="product__price" itemscope>
           <span class="product__price--strike">{{ product.price.originalPrice }}</span>
           <span
             class="product__price--discounted"
