@@ -1,8 +1,13 @@
 <template>
   <main class="product-page">
     <div class="container">
-      Products!
-      <div>
+      <div v-if="allProductsStatus.isLoading || fakeIsLoading">
+        <LoadingSpinner :spinnerType=1 />
+      </div>
+      <div v-else-if="allProductsStatus.error" class="error product-list-error">
+        <p>{{ allProductsStatus.error }}</p>
+      </div>
+      <div v-else>
         <ul class="product-list">
             <li class="product-list__item" v-for="product in productsForThisPage" :key="product.uuid">
               <ProductItem
@@ -22,11 +27,13 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import ProductItem from '@/components/Product/ProductItem.vue';
-import { PRODUCTS_PER_PAGE } from '@/utilities/constants';
+import { PRODUCTS_PER_PAGE, FAKE_WAIT_TIME_MS } from '@/utilities/constants';
+import LoadingSpinner from '@/components/Utils/LoadingSpinner.vue';
 
 export default {
   name: 'ProductListPage',
   components: {
+    LoadingSpinner,
     ProductItem,
   },
   created() {
@@ -35,6 +42,7 @@ export default {
   data() {
     return {
       currentPage: 1,
+      fakeIsLoading: false,
     };
   },
   computed: {
@@ -59,6 +67,10 @@ export default {
       'removeProductFromWishlist',
     ]),
     askForThisPageProducts() {
+      this.fakeIsLoading = true;
+      setTimeout(() => {
+        this.fakeIsLoading = false;
+      }, FAKE_WAIT_TIME_MS);
       if (!this.allProducts[this.firstProductGlobalIndex]) {
         this.fetchProducts(this.firstProductGlobalIndex);
       }
