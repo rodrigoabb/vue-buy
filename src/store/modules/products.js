@@ -1,24 +1,10 @@
 // import axios from 'axios';
+import mockedProducts from './mockedProducts.json';
+import { PRODUCTS_PER_PAGE } from '@/utilities/constants';
 
 const getDefaultState = () => (
   {
-    products: [
-      {
-        uuid: '95aca17a-45cd-84cd-4517-a199dbd8524b',
-        title: 'A really beautiful image of a random topic',
-        description: 'You can see here something that is really nice, unexpected, you probably do not know if it is for sale or not but you want to buy it. See the price, it is not too bad.',
-        price: {
-          currency: 'EUR',
-          originalValue: 45,
-          originalPrice: '€ 85.00 ',
-          discountValue: 45,
-          discountPrice: '€ 45,00 ',
-        },
-        cover_image_url: 'https://i.picsum.photos/id/154/200/200.jpg',
-        isAddedToCart: false,
-        isAddedToWishlist: false,
-      },
-    ],
+    products: [],
     productsIsLoading: false,
     productsError: '',
   }
@@ -34,9 +20,12 @@ const getters = {
 };
 
 const actions = {
-  fetchProducts({ commit }) {
+  fetchProducts({ commit }, productGlobalIndex) {
     commit('SET_PRODUCTS_PENDING');
     // Some API call to retrieve products, then will either commit SET_PRODUCTS_SUCCESS or SET_PRODUCTS_ERROR
+    // For now, we're just going to use mocked data
+    const productsForThisPage = mockedProducts.splice(productGlobalIndex, productGlobalIndex + PRODUCTS_PER_PAGE);
+    commit('SET_PRODUCTS_SUCCESS', { products: productsForThisPage, productGlobalIndex });
   },
   addProductToCart({ commit }, product) {
     commit('ADD_PRODUCT_TO_CART', product);
@@ -53,8 +42,20 @@ const actions = {
 };
 
 const mutations = {
-  SET_PRODUCTS_SUCCESS: (state, { products }) => {
-    state.products = [products];
+  SET_PRODUCTS_SUCCESS: (state, { products, productGlobalIndex }) => {
+    const formattedProducts = products.map(product => (
+      {
+        ...product,
+        isAddedToCart: false,
+        isAddedToWishlist: false,
+      }
+    ));
+    const tempArray = state.products;
+    for (let i = 0; i < formattedProducts.length; i += 1) {
+      tempArray[productGlobalIndex + i] = formattedProducts[i];
+    }
+
+    state.products = [...tempArray];
     state.productsIsLoading = false;
     state.productsError = '';
   },
