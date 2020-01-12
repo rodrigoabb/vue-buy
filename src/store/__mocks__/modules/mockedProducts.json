@@ -1,0 +1,80 @@
+[
+    {
+        "uuid": "a87209d7-0b7e-47be-8d7c-5c1dfcd9a220",
+        "title": "foolish thirsty filthy panoramic depressed huge prime lucky tremendous adorable cumbersome eggs 5274",
+        "description": "Reprehenderit dolore ea cupidatat minim exercitation id incididunt sint nulla esse et pariatur ea voluptate ipsum irure incididunt reprehenderit reprehenderit excepteur voluptate labore aute eu do adipisicing consequat laboris id velit anim deserunt ut nisi consectetur commodo.",
+        "cover_image_url": "https://picsum.photos/id/0/5616/3744",
+        "price": {
+          "currency": "EUR",
+          "originalValue": "241.00",
+          "originalPrice": "€ 241.00",
+          "discountValue": "192.80",
+          "discountPrice": "€ 192.80"
+        }
+      },
+      {
+        "uuid": "1fc9ddfd-1e8c-4e18-a3e7-c020a9c44652",
+        "title": "abundant overt puzzling cluttered boiling detailed marked amused rampant hollow flawless thankful concerned coherent huge bad pumped spectacular parched voyage 5472",
+        "description": "Amet culpa aliqua commodo ad id exercitation aliquip reprehenderit esse amet labore laboris commodo dolore aliqua voluptate quis duis sit non duis excepteur duis ut aute minim ipsum ullamco.",
+        "cover_image_url": "https://picsum.photos/id/1/5616/3744",
+        "price": {
+          "currency": "EUR",
+          "originalValue": "527.00",
+          "originalPrice": "€ 527.00",
+          "discountValue": "421.60",
+          "discountPrice": "€ 421.60"
+        }
+      },
+      {
+        "uuid": "d3443aab-3f93-401b-b5ed-114eaa2e3de1",
+        "title": "nostalgic gold unknown fun unwieldy chic tense threatening adaptable pink parched obtainable psychedelic decorous endurable pretty silky death 3674",
+        "description": "Do eiusmod officia aliqua dolore dolore ut qui dolore fugiat est laborum do enim et aliquip laboris laborum eu sint voluptate non tempor nulla enim aliqua elit dolor id elit nostrud et ad.",
+        "cover_image_url": "https://picsum.photos/id/10/2500/1667",
+        "price": {
+          "currency": "EUR",
+          "originalValue": "213.00",
+          "originalPrice": "€ 213.00",
+          "discountValue": "170.40",
+          "discountPrice": "€ 170.40"
+        }
+      },
+      {
+        "uuid": "c547e3ff-44ab-49c1-aceb-588f930eb9a2",
+        "title": "finicky long skillful plum apathetic famous literate dry nondescript scared rainy uttermost knotty smoggy zebra 4370",
+        "description": "Cupidatat nostrud voluptate proident anim nulla tempor minim incididunt sint do eiusmod incididunt labore nostrud officia duis dolor enim aute velit elit nisi enim adipisicing ullamco elit id velit esse consequat nisi excepteur aute duis nulla sint sint.",
+        "cover_image_url": "https://picsum.photos/id/100/2500/1656",
+        "price": {
+          "currency": "EUR",
+          "originalValue": "246.00",
+          "originalPrice": "€ 246.00",
+          "discountValue": "196.80",
+          "discountPrice": "€ 196.80"
+        }
+      },
+      {
+        "uuid": "546b785b-58c3-4879-a675-106f29af1e49",
+        "title": "observant guttural elite poised tangy wise sturdy unsuitable present childlike frogs 1549",
+        "description": "Quis culpa magna duis id mollit ea non ex officia ullamco duis excepteur enim quis aliquip quis elit magna cillum labore sit in duis.",
+        "cover_image_url": "https://picsum.photos/id/1000/5626/3635",
+        "price": {
+          "currency": "EUR",
+          "originalValue": "431.00",
+          "originalPrice": "€ 431.00",
+          "discountValue": "344.80",
+          "discountPrice": "€ 344.80"
+        }
+      },
+      {
+        "uuid": "0a95d66e-e2eb-438a-89c7-cbbead3e30f6",
+        "title": "lush likely melodic delicious aloof wiry daily quickest jealous hot money decorous august befitting common ill earthy astute violent spoon 7605",
+        "description": "Esse quis mollit nisi reprehenderit nisi fugiat proident nulla proident nostrud eu eiusmod enim officia magna in dolor culpa magna.",
+        "cover_image_url": "https://picsum.photos/id/1001/5616/3744",
+        "price": {
+          "currency": "EUR",
+          "originalValue": "545.00",
+          "originalPrice": "€ 545.00",
+          "discountValue": "436.00",
+          "discountPrice": "€ 436.00"
+        }
+      }
+]
