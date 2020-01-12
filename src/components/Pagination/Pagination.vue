@@ -30,6 +30,22 @@
 <script>
 import PaginationNumberList from '@/components/Pagination/PaginationNumberList.vue';
 
+/**
+  * @module Pagination/Pagination
+  * @desc Pagniation component
+  * @vue-prop {Number} currentPage - Positive
+  * @vue-prop {Number} pageCount - Positive
+  * @vue-computed {Boolean} isPreviousButtonDisabled - Determines if 'Left Arrow' is disabled or not - True if current page is equal to 1, else otherwise
+  * @vue-computed {Boolean} isNextButtonDisabled - Determines if 'Rigth Arrow' is disabled or not - True if current page is equal to pageCount (page quantity), else otherwise
+  * @vue-computed {Boolean} shouldAddEllipsis - Determines if ellipsis need to be shown on pagination component or not - True if pageCount (page quantity) is greater than 3, false otherwise
+  * @vue-computed {Number} pagesToShow - Determines how many pages will be shown on the list of pages. Depends on pageCount (page quantity) value
+  * @vue-computed {Array.<String>} paginationNumbers - Build array of pages that are going to be shown on component - Depends on pagesToShow and currentPage
+  * @vue-event {Number} nextPage - Emits 'nextPage' event
+  * @vue-event {Number} previousPage - Emits 'previousPage' event
+  * @vue-event {Number} loadPage - Emits 'loadPage' event
+*/
+
+
 export default {
   name: 'Pagination',
   components: {
@@ -121,12 +137,22 @@ export default {
     },
   },
   methods: {
+    /**
+     * Emits a 'nextPage' event
+    */
     nextPage() {
       this.$emit('nextPage');
     },
+    /**
+     * Emits a 'previousPage' event
+    */
     previousPage() {
       this.$emit('previousPage');
     },
+    /**
+     * Emits a 'loadPage' event with specified page number
+     * @param {Number} pageToLoad - Page selected to be load
+    */
     onLoadPage(pageToLoad) {
       this.$emit('loadPage', pageToLoad);
     },
@@ -135,6 +161,9 @@ export default {
 </script>
 
 <style lang='scss'>
+
+@import "@/utilities/variables";
+
 
 .pagination-custom {
   display: flex;
@@ -150,7 +179,7 @@ export default {
     }
 
     &--current span {
-      color: orange;
+      color: $c-primary-accent;
       pointer-events: none;
     }
   }
@@ -187,7 +216,7 @@ export default {
   text-align: center;
   cursor: pointer;
   transition: .3s border, .3s color, .3s background-color;
-  color: orange;
+  color: $c-primary-accent;
 }
 
 .pagination-button_disabled {
@@ -207,13 +236,12 @@ export default {
 .pagination__link:hover {
   cursor: pointer;
   transition: all 300ms ease;
-  color: orange;
+  color: $c-primary-accent;
 }
 
 .pagination__link .icon {
   width: 8px;
   fill: #444A59;
 }
-
 
 </style>
