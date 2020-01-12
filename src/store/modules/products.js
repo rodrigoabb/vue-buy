@@ -24,7 +24,7 @@ const actions = {
     commit('SET_PRODUCTS_PENDING');
     // Some API call to retrieve products, then will either commit SET_PRODUCTS_SUCCESS or SET_PRODUCTS_ERROR
     // For now, we're just going to use mocked data
-    const productsForThisPage = mockedProducts.splice(productGlobalIndex, productGlobalIndex + PRODUCTS_PER_PAGE);
+    const productsForThisPage = mockedProducts.slice(productGlobalIndex, productGlobalIndex + PRODUCTS_PER_PAGE);
     commit('SET_PRODUCTS_SUCCESS', { products: productsForThisPage, productGlobalIndex });
   },
   addProductToCart({ commit }, product) {
