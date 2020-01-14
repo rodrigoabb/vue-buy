@@ -2,7 +2,7 @@
   <div>
     <article class="product" itemscope>
       <figure class="product__image-wrapper">
-        <img class="product__image" :src="`${product.cover_image_url}?w=200`" alt="Product" itemprop="image" />
+        <img class="product__image" :src="`${product.cover_image_url}`" alt="Product" itemprop="image" />
         <button
           class="product__wishlist-button button button--round button--wishlist"
           :class="wishlistButtonClass"
@@ -25,7 +25,7 @@
         </button>
       </figure>
       <div class="product__details">
-        <h1 class="product__title" itemprop="brand">{{ product.title }}</h1>
+        <h1 class="product__title" itemprop="brand">{{ truncateWithEllipses(product.title, productTitleMaxLength) }}</h1>
         <p class="product__subtitle" itemprop="description">{{ truncateWithEllipses(product.description, productDescriptionMaxLength) }}</p>
         <div class="product__price" itemscope>
           <span class="product__price--strike">{{ product.price.originalPrice }}</span>
@@ -48,7 +48,7 @@
 
 <script>
 import { truncateTextWithEllipses } from '@/utilities/helperFunctions';
-import { PRODUCT_DESCRIPTION_LIST_MAX_LENGTH } from '@/utilities/constants';
+import { PRODUCT_DESCRIPTION_LIST_MAX_LENGTH, PRODUCT_TITLE_MAX_LENGTH } from '@/utilities/constants';
 
 /**
   * @module Product/ProductItem
@@ -74,6 +74,7 @@ export default {
   },
   data() {
     return {
+      productTitleMaxLength: PRODUCT_TITLE_MAX_LENGTH,
       productDescriptionMaxLength: PRODUCT_DESCRIPTION_LIST_MAX_LENGTH,
     };
   },
