@@ -2,7 +2,7 @@
   <div>
     <article class="product" itemscope>
       <figure class="product__image-wrapper">
-        <img class="product__image" :src="product.cover_image_url" alt="Product" itemprop="image" />
+        <img class="product__image" :src="`${product.cover_image_url}?w=200`" alt="Product" itemprop="image" />
         <button
           class="product__wishlist-button button button--round button--wishlist"
           :class="wishlistButtonClass"

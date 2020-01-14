@@ -9,7 +9,7 @@
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "docs": "rm -rf docs && jsdoc -d docs -c .jsdoc.js",
-    "heroku-postbuild": "npm install"
+    "heroku-postbuild": "npm install && npm run build"
   },
   "dependencies": {
     "core-js": "^3.4.4",
