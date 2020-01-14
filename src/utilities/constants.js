@@ -34,6 +34,11 @@ export const LANGUAGE = { name: 'italian', code: 'it' };
 export const PRODUCT_DESCRIPTION_LIST_MAX_LENGTH = 100;
 
 /**
-  * Defines the max length of product titles on Cart Dropdown Component
+  * Defines the max length of product titles on Cart Dropdown component
 */
 export const PRODUCT_TITLE_DROPDOWN_MAX_LENGTH = 60;
+
+/**
+  * Defines the max length of product titles on Product Item component
+*/
+export const PRODUCT_TITLE_MAX_LENGTH = 140;
