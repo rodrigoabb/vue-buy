@@ -41,4 +41,4 @@ export const PRODUCT_TITLE_DROPDOWN_MAX_LENGTH = 60;
 /**
   * Defines the max length of product titles on Product Item component
 */
-export const PRODUCT_TITLE_MAX_LENGTH = 140;
+export const PRODUCT_TITLE_MAX_LENGTH = 100;
