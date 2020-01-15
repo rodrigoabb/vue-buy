@@ -1,80 +1,80 @@
 [
     {
-        "uuid": "a87209d7-0b7e-47be-8d7c-5c1dfcd9a220",
-        "title": "foolish thirsty filthy panoramic depressed huge prime lucky tremendous adorable cumbersome eggs 5274",
-        "description": "Reprehenderit dolore ea cupidatat minim exercitation id incididunt sint nulla esse et pariatur ea voluptate ipsum irure incididunt reprehenderit reprehenderit excepteur voluptate labore aute eu do adipisicing consequat laboris id velit anim deserunt ut nisi consectetur commodo.",
-        "cover_image_url": "https://picsum.photos/id/0/5616/3744",
-        "price": {
-          "currency": "EUR",
-          "originalValue": "241.00",
-          "originalPrice": "€ 241.00",
-          "discountValue": "192.80",
-          "discountPrice": "€ 192.80"
-        }
-      },
-      {
-        "uuid": "1fc9ddfd-1e8c-4e18-a3e7-c020a9c44652",
-        "title": "abundant overt puzzling cluttered boiling detailed marked amused rampant hollow flawless thankful concerned coherent huge bad pumped spectacular parched voyage 5472",
-        "description": "Amet culpa aliqua commodo ad id exercitation aliquip reprehenderit esse amet labore laboris commodo dolore aliqua voluptate quis duis sit non duis excepteur duis ut aute minim ipsum ullamco.",
-        "cover_image_url": "https://picsum.photos/id/1/5616/3744",
-        "price": {
-          "currency": "EUR",
-          "originalValue": "527.00",
-          "originalPrice": "€ 527.00",
-          "discountValue": "421.60",
-          "discountPrice": "€ 421.60"
-        }
-      },
-      {
-        "uuid": "d3443aab-3f93-401b-b5ed-114eaa2e3de1",
-        "title": "nostalgic gold unknown fun unwieldy chic tense threatening adaptable pink parched obtainable psychedelic decorous endurable pretty silky death 3674",
-        "description": "Do eiusmod officia aliqua dolore dolore ut qui dolore fugiat est laborum do enim et aliquip laboris laborum eu sint voluptate non tempor nulla enim aliqua elit dolor id elit nostrud et ad.",
-        "cover_image_url": "https://picsum.photos/id/10/2500/1667",
-        "price": {
-          "currency": "EUR",
-          "originalValue": "213.00",
-          "originalPrice": "€ 213.00",
-          "discountValue": "170.40",
-          "discountPrice": "€ 170.40"
-        }
-      },
-      {
-        "uuid": "c547e3ff-44ab-49c1-aceb-588f930eb9a2",
-        "title": "finicky long skillful plum apathetic famous literate dry nondescript scared rainy uttermost knotty smoggy zebra 4370",
-        "description": "Cupidatat nostrud voluptate proident anim nulla tempor minim incididunt sint do eiusmod incididunt labore nostrud officia duis dolor enim aute velit elit nisi enim adipisicing ullamco elit id velit esse consequat nisi excepteur aute duis nulla sint sint.",
-        "cover_image_url": "https://picsum.photos/id/100/2500/1656",
-        "price": {
-          "currency": "EUR",
-          "originalValue": "246.00",
-          "originalPrice": "€ 246.00",
-          "discountValue": "196.80",
-          "discountPrice": "€ 196.80"
-        }
-      },
-      {
-        "uuid": "546b785b-58c3-4879-a675-106f29af1e49",
-        "title": "observant guttural elite poised tangy wise sturdy unsuitable present childlike frogs 1549",
-        "description": "Quis culpa magna duis id mollit ea non ex officia ullamco duis excepteur enim quis aliquip quis elit magna cillum labore sit in duis.",
-        "cover_image_url": "https://picsum.photos/id/1000/5626/3635",
-        "price": {
-          "currency": "EUR",
-          "originalValue": "431.00",
-          "originalPrice": "€ 431.00",
-          "discountValue": "344.80",
-          "discountPrice": "€ 344.80"
-        }
-      },
-      {
-        "uuid": "0a95d66e-e2eb-438a-89c7-cbbead3e30f6",
-        "title": "lush likely melodic delicious aloof wiry daily quickest jealous hot money decorous august befitting common ill earthy astute violent spoon 7605",
-        "description": "Esse quis mollit nisi reprehenderit nisi fugiat proident nulla proident nostrud eu eiusmod enim officia magna in dolor culpa magna.",
-        "cover_image_url": "https://picsum.photos/id/1001/5616/3744",
-        "price": {
-          "currency": "EUR",
-          "originalValue": "545.00",
-          "originalPrice": "€ 545.00",
-          "discountValue": "436.00",
-          "discountPrice": "€ 436.00"
-        }
-      }
+    "uuid": "dc2f290c-ca7c-4c28-a3e9-1448cb5bd077",
+    "title": "Fumbling bizarre disgusting unarmed haloed shrill distinct spacial trousers 1922",
+    "description": "Proident aliqua non fugiat adipisicing anim occaecat labore anim sunt minim mollit elit ipsum adipisicing irure tempor amet mollit dolore do mollit ut quis ex quis esse veniam adipisicing elit ea excepteur ut consectetur occaecat velit laborum occaecat.",
+    "cover_image_url": "https://picsum.photos/id/0/329/220",
+    "price": {
+      "currency": "EUR",
+      "originalValue": "595.00",
+      "originalPrice": "€ 595.00",
+      "discountValue": "476.00",
+      "discountPrice": "€ 476.00"
+    }
+  },
+  {
+    "uuid": "2a303854-f01d-4468-97d9-cec1207c6880",
+    "title": "Quixotic miniature detailed laughable faded aquatic wrathful alleged oval wing 6700",
+    "description": "Culpa officia deserunt exercitation eu eiusmod aute aute id occaecat incididunt nulla incididunt laboris anim eu voluptate et adipisicing aute velit id consequat nostrud magna excepteur do cillum.",
+    "cover_image_url": "https://picsum.photos/id/1/329/220",
+    "price": {
+      "currency": "EUR",
+      "originalValue": "171.00",
+      "originalPrice": "€ 171.00",
+      "discountValue": "136.80",
+      "discountPrice": "€ 136.80"
+    }
+  },
+  {
+    "uuid": "1c56ba71-b9c2-4428-8ca7-f1c47e336ad5",
+    "title": "Shaky nondescript steep perfect rosy encouraging terrible wacky utopian joyful past happy absent measure 4522",
+    "description": "Velit occaecat occaecat nulla nulla incididunt adipisicing enim ex deserunt qui mollit occaecat irure est do laborum mollit tempor adipisicing Lorem commodo adipisicing id laborum minim quis incididunt incididunt commodo nostrud.",
+    "cover_image_url": "https://picsum.photos/id/10/329/220",
+    "price": {
+      "currency": "EUR",
+      "originalValue": "263.00",
+      "originalPrice": "€ 263.00",
+      "discountValue": "210.40",
+      "discountPrice": "€ 210.40"
+    }
+  },
+  {
+    "uuid": "00c478a8-d729-4306-92bc-91df4a78ccdc",
+    "title": "Nonchalant subsequent nonchalant squealing unable fearless careless puzzled dry blushing tender thriving mindless pushy smell 1631",
+    "description": "Sunt sit ipsum occaecat ex labore qui officia eiusmod consequat aliquip ipsum pariatur voluptate sunt ea magna officia duis consectetur.",
+    "cover_image_url": "https://picsum.photos/id/100/329/220",
+    "price": {
+      "currency": "EUR",
+      "originalValue": "376.00",
+      "originalPrice": "€ 376.00",
+      "discountValue": "300.80",
+      "discountPrice": "€ 300.80"
+    }
+  },
+  {
+    "uuid": "3865121b-cb68-43be-a8c3-c216fe57e973",
+    "title": "Khaki substantial draconian petite giant scattered capricious natural noxious psychotic important comfortable reach cushion 6255",
+    "description": "Ea eu magna culpa dolor est elit laborum esse officia sit Lorem do tempor voluptate commodo occaecat ea mollit aliqua quis amet in ipsum enim dolor.",
+    "cover_image_url": "https://picsum.photos/id/1000/329/220",
+    "price": {
+      "currency": "EUR",
+      "originalValue": "192.00",
+      "originalPrice": "€ 192.00",
+      "discountValue": "153.60",
+      "discountPrice": "€ 153.60"
+    }
+  },
+  {
+    "uuid": "71e3a620-9746-4969-8eff-08d2652344e5",
+    "title": "Inexpensive whole careful spotted uplifting plastic chivalrous succinct auspicious delicate cheap opposite fair fantastic border 9677",
+    "description": "Minim elit officia eu commodo ea ex Lorem ullamco cupidatat adipisicing amet aliquip eiusmod est ullamco dolor eu occaecat fugiat consequat nostrud nostrud sunt laboris officia irure qui aliqua.",
+    "cover_image_url": "https://picsum.photos/id/1001/329/220",
+    "price": {
+      "currency": "EUR",
+      "originalValue": "609.00",
+      "originalPrice": "€ 609.00",
+      "discountValue": "487.20",
+      "discountPrice": "€ 487.20"
+    }
+  },
 ]
