@@ -32,7 +32,6 @@ export default {
 .big-logo {
   display: none;
   width: 200px;
-  // height: 36px;
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
