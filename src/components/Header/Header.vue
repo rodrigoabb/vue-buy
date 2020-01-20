@@ -2,7 +2,7 @@
   <div class="header-container">
     <header class="header">
       <router-link to="/">
-        <div>Some kind of Company Logo</div>
+        <Logo />
       </router-link>
       <aside class="header-cart">
         <div class="header-cart__item header-cart__count">
@@ -76,6 +76,7 @@ import Vue from 'vue';
 import { mapGetters, mapActions } from 'vuex';
 import { CURRENCY } from '@/utilities/constants';
 import CartDropdown from '@/components/Utils/CartDropdown.vue';
+import Logo from '@/components/Utils/Logo.vue';
 
 /**
    * @module Header/Header
@@ -128,6 +129,7 @@ export default {
   name: 'Header',
   components: {
     CartDropdown,
+    Logo,
   },
   data() {
     return {
